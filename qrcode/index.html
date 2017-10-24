@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input id="qrinfo" type="text"><button id="build">生成</button>
+<div id="qrcode">
+
+</div>
+<script src="qrcode.js"></script>
+<script>
+  document.getElementById('qrinfo').onfocus = function(){
+    this.value = '';
+  };
+
+  document.getElementById('build').onclick = function(){
+    document.getElementById("qrcode").innerHTML = '';
+    new QRCode(document.getElementById("qrcode"), {
+      width: 200,
+      height: 200,
+      text: document.getElementById('qrinfo').value
+    })
+  }
+</script>
+<!--script src="jquery.js"></script>
+<script src="jqeury_qrcode.js"></script>
+<script>
+  $('#build').on('click', function(){
+
+    $('#qrcode').qrcode({
+      width: 200,
+      height: 200,
+      text: $('#qrinfo').val()
+    })
+  })
+  test commit
+  test commit2
+</script-->
+</body>
+</html>
