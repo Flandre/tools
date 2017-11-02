@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .main{
+      width: 610px;
+      height: 610px;
+      border: 1px solid
+    }
+    .main > .box{
+      width: 180px;
+      height: 180px;
+      margin: 10px;
+      border: 1px solid;
+      float: left;
+      line-height: 180px;
+      text-align: center;
+      font-size: 48px;
+    }
+    .box.control {
+      font-size: 90px;
+    }
+    .box.active{
+      background: #000;
+      color: #fff;
+      transition: 200ms;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+  <div class="box prize-1">奖品1</div>
+  <div class="box prize-2">奖品2</div>
+  <div class="box prize-3">奖品3</div>
+  <div class="box prize-8">奖品8</div>
+  <div class="box control">GO</div>
+  <div class="box prize-4">奖品4</div>
+  <div class="box prize-7">奖品7</div>
+  <div class="box prize-6">奖品6</div>
+  <div class="box prize-5">奖品5</div>
+</div>
+<span>抽奖控制</span><input type="text" class="ipt">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var max, count = 0
+  $('.control').one('click', function(e){
+    max = 8 * (3 + Math.ceil(3 * Math.random())) + $('.ipt').val() % 8 || 0
+    run()
+  })
+
+  function run(){
+    var time = 100
+    if(max * .7 < count){
+      time = 300
+    }
+    if(max * .9 < count){
+      time = 600
+    }
+    setTimeout(function(){
+      $('.box').removeClass('active')
+      $('.prize-' + (count% 8 + 1)).addClass('active')
+      count ++
+      if(count < max){
+        run()
+      } else {
+        setTimeout(function(){
+          alert('抽中' + $('.active').text())
+          count = 0
+          $('.control').one('click', function(e){
+            max = 8 * (3 + Math.ceil(3 * Math.random())) + $('.ipt').val() % 8 || 0
+            run()
+          })
+        }, 1000)
+      }
+    }, time)
+  }
+</script>
+</body>
+</html>
