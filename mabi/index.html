@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">-->
+  <style>
+    .container {
+      margin-top: 20px;
+    }
+    .union-list {
+      margin-bottom: 20px;
+    }
+    .list-item {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="union-title row">
+      <h3 class="col-xs-4"></h3>
+      <h3 class="col-xs-4">主手</h3>
+      <h3 class="col-xs-4">副手</h3>
+    </div>
+    <div class="union-list">
+
+    </div>
+    <a href="javascript:;" class="btn btn-default btn-block btn-add">添加</a>
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  const job = [
+    '战士',
+    '弓手',
+    '魔法师',
+    '裁缝',
+    '铁匠',
+    '药剂师',
+    '战斗炼金',
+    '炼成炼金',
+    '人偶师',
+    '双枪',
+    '骑士枪',
+    '忍者',
+    '格斗家',
+    '吟游诗人',
+    '治疗师',
+    '链刃师',
+    '厨师',
+    '商人',
+    '木工',
+    '冒险家',
+  ]
+  $(document).ready(() => {
+    $(".btn").click(() => {
+      if($(".btn").hasClass('btn-add')){
+        addList()
+        $(".btn").removeClass('btn-add').addClass('roll').html('ROLL!')
+      } else if($(".btn").hasClass('roll')){
+        roll()
+        $(".btn").removeClass('roll').addClass('stop').html('就它了!')
+      } else if($(".btn").hasClass('stop')){
+        stopRoll()
+        $(".btn").removeClass('stop').addClass('btn-add').html('添加')
+      }
+    });
+  });
+  const addList = () => {
+    let ul = $('.union-list'), li = $(
+      '<div class="list-item row">' +
+        '<div class="input-name col-xs-4">' +
+          '<input type="text">' +
+        '</div>' +
+        '<span class="col-xs-4 job1"></span>' +
+        '<span class="col-xs-4 job2"></span>' +
+      '</div>'
+    )
+    this.li = li
+    ul.append(li)
+  }
+  const roll = () => {
+    let self = this, j1 = $('.job1', $(self.li)), j2 = $('.job2', $(self.li)), input = $('input', $(self.li))
+    if(input.val().trim()){
+      let val = input.val()
+      input.parent().empty().append(`<span>${val}</span>`)
+      self.inv = setInterval(() => {
+        j1.html(job[~~(Math.random() * job.length)])
+        j2.html(job[~~(Math.random() * job.length)])
+      }, 100)
+    } else {
+      alert('请输入姓名')
+    }
+  }
+  const stopRoll = () => {
+    clearInterval(this.inv)
+  }
+</script>
+</html>
