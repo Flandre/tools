@@ -64,7 +64,6 @@
         $(".btn").removeClass('btn-add').addClass('roll').html('ROLL!')
       } else if($(".btn").hasClass('roll')){
         roll()
-        $(".btn").removeClass('roll').addClass('stop').html('就它了!')
       } else if($(".btn").hasClass('stop')){
         stopRoll()
         $(".btn").removeClass('stop').addClass('btn-add').html('添加')
@@ -75,7 +74,7 @@
     let ul = $('.union-list'), li = $(
       '<div class="list-item row">' +
         '<div class="input-name col-xs-4">' +
-          '<input type="text">' +
+          '<input type="text" placeholder="请输入游戏名称">' +
         '</div>' +
         '<span class="col-xs-4 job1"></span>' +
         '<span class="col-xs-4 job2"></span>' +
@@ -87,6 +86,7 @@
   const roll = () => {
     let self = this, j1 = $('.job1', $(self.li)), j2 = $('.job2', $(self.li)), input = $('input', $(self.li))
     if(input.val().trim()){
+      $(".btn").removeClass('roll').addClass('stop').html('就它了!')
       let val = input.val()
       input.parent().empty().append(`<span>${val}</span>`)
       self.inv = setInterval(() => {
@@ -94,7 +94,7 @@
         j2.html(job[~~(Math.random() * job.length)])
       }, 100)
     } else {
-      alert('请输入姓名')
+      alert('请输入游戏名称')
     }
   }
   const stopRoll = () => {
