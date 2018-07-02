@@ -47,6 +47,14 @@
         left: Math.random() * window.innerWidth + 'px'
       })
     })
+    $('.btn-move').on('touchstart', function(e){
+      e.preventDefault()
+      e.stopPropagation()
+      $('.btn-move').css({
+        top: Math.random() * window.innerHeight + 'px',
+        left: Math.random() * window.innerWidth + 'px'
+      })
+    })
     $('.btn-alert').on('click', function(){
       alert('摸你傻就是baka')
     })
