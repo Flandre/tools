@@ -34,7 +34,7 @@
   <div class="dialog">
     <div class="title">摸你傻是不是baka</div>
     <div class="actions">
-      <a href="javascript:;" class="btn btn-default">是</a>
+      <a href="javascript:;" class="btn btn-default btn-alert">是</a>
       <a href="javascript:;" class="btn btn-default btn-move">不是</a>
     </div>
   </div>
@@ -46,8 +46,12 @@
         left: Math.random() * window.innerWidth + 'px'
       })
     })
-
-    
+    $('.btn-alert').on('click', function(){
+      alert('摸你傻就是baka')
+    })
+    $('.btn-move').on('click', function(){
+      alert('点中了也是baka')
+    })
   </script>
 </body>
 </html>
