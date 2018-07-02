@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <title>Title</title>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .dialog {
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 5px;
+      width: 300px;
+      margin: 10px auto;
+    }
+    .title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .actions {
+    }
+    .btn {
+      margin-right: 20px;
+    }
+    .btn:last-child {
+      margin-right: 0px;
+    }
+    .btn-move {
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div class="dialog">
+    <div class="title">摸你傻是不是baka</div>
+    <div class="actions">
+      <a href="javascript:;" class="btn btn-default">是</a>
+      <a href="javascript:;" class="btn btn-default btn-move">不是</a>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $('.btn-move').on('mouseover', function(){
+      $('.btn-move').css({
+        top: Math.random() * window.innerHeight + 'px',
+        left: Math.random() * window.innerWidth + 'px'
+      })
+    })
+
+    
+  </script>
+</body>
+</html>
