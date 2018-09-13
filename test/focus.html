@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+</head>
+<body>
+  <textarea id="ipt" placeholder="输入..."></textarea>
+  <button id="btn">点击获取焦点</button>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $("#btn").on('click', function (){
+      $('#ipt').focus()
+    })
+  </script>
+</body>
+</html>
