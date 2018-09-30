@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .game-main {
+      width: 600px;
+      height: 600px;
+      margin: 20px auto;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+    .game-item {
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+      width: 199px;
+      height: 199px;
+      float: left;
+    }
+    .game-item.item-wife {
+      background: url("1.jpg") center no-repeat;
+    }
+    .game-item.item-marisa {
+      background: url("2.jpg") center no-repeat;
+    }
+    .game-repeat-container {
+      width: 600px;
+      height: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="game-main">
+  <div class="game-item" data-x="0" data-y="0"></div>
+  <div class="game-item" data-x="0" data-y="1"></div>
+  <div class="game-item" data-x="0" data-y="2"></div>
+  <div class="game-item" data-x="1" data-y="0"></div>
+  <div class="game-item" data-x="1" data-y="1"></div>
+  <div class="game-item" data-x="1" data-y="2"></div>
+  <div class="game-item" data-x="2" data-y="0"></div>
+  <div class="game-item" data-x="2" data-y="1"></div>
+  <div class="game-item" data-x="2" data-y="2"></div>
+</div>
+<div class="game-repeat-container">
+  <div class="btn btn-default btn-block game-repeat">重新开始</div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  let gamer = 0
+  $('.game-item').on('click', function(){
+    if(!($(this).hasClass('item-marisa') || $(this).hasClass('item-wife'))){
+      $(this).addClass(gamer ? 'item-marisa' : 'item-wife')
+      gamer = gamer ? 0 : 1
+    }
+  })
+  $('.game-repeat').on('click', function(){
+    initGame()
+  })
+  function initGame() {
+    $.each($('.game-item'), (index, ele) => {
+      $(ele).removeClass('item-wife')
+      $(ele).removeClass('item-marisa')
+    })
+    gamer = 0
+  }
+  initGame()
+</script>
+</body>
+</html>
