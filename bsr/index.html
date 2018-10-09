@@ -13,9 +13,21 @@
       color: #fff;
       line-height: 20px;
     }
+    .box-home {
+      width: 20px;
+      height: 20px;
+      background: #000;
+      position:absolute;
+      text-align: center;
+      color: #fff;
+      line-height: 20px;
+      top: 400px;
+      left: 400px;
+    }
   </style>
 </head>
 <body>
+<div class="box-home">1</div>
 <div class="box">1</div>
 <div class="box">2</div>
 <div class="box">3</div>
@@ -26,11 +38,18 @@
 <div class="box">8</div>
 <div class="box">9</div>
 <div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
+<div class="box">10</div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-  const HOME_X = 400, HOME_Y = 400, MARK_X = 400, MARK_Y = 200
+  let HOME_X = 400, HOME_Y = 400, MARK_X = 400, MARK_Y = 200
   $('.box').css({
     "top": HOME_X,
     "left": HOME_Y
@@ -39,6 +58,7 @@
     console.log(`${e.clientX}_${e.clientY}`)
     /* 贝塞尔曲线布局 */
     let count = $('.box').length, MOUSE_X = e.clientX, MOUSE_Y = e.clientY
+    MARK_X = 400 - (MOUSE_X - 400) / 5
     $.each($('.box'), function(index, ele){
       let i = index + 1
       const B_1_X = (MARK_X - HOME_X) / count * i + HOME_X
