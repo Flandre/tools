@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .box {
+      width: 20px;
+      height: 20px;
+      background: #000;
+      position:absolute;
+      text-align: center;
+      color: #fff;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+<div class="box">5</div>
+<div class="box">6</div>
+<div class="box">7</div>
+<div class="box">8</div>
+<div class="box">9</div>
+<div class="box">10</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  const HOME_X = 400, HOME_Y = 400, MARK_X = 400, MARK_Y = 200
+  $('.box').css({
+    "top": HOME_X,
+    "left": HOME_Y
+  })
+  $(document).on('mousemove', function(e){
+    console.log(`${e.clientX}_${e.clientY}`)
+    /* 贝塞尔曲线布局 */
+    let count = $('.box').length, MOUSE_X = e.clientX, MOUSE_Y = e.clientY
+    $.each($('.box'), function(index, ele){
+      let i = index + 1
+      const B_1_X = (MARK_X - HOME_X) / count * i + HOME_X
+      const B_1_Y = (MARK_Y - HOME_Y) / count * i + HOME_Y
+      const B_2_X = (MOUSE_X - MARK_X) / count * i + MARK_X
+      const B_2_Y = (MOUSE_Y - MARK_Y) / count * i + MARK_Y
+      const B_X = (B_2_X - B_1_X) / count * i + B_1_X
+      const B_Y = (B_2_Y - B_1_Y) / count * i + B_1_Y
+      $(ele).css({
+        "top": B_Y,
+        "left": B_X
+      })
+    })
+  })
+</script>
+</html>
