@@ -12,7 +12,7 @@
     }
     .fix-bar {
       width: 100%;
-      height: 100px;
+      height: 200px;
       background: #dfdfdf;
       position: fixed;
       top: 0;
@@ -22,6 +22,8 @@
 <body>
 <div class="fix-bar">
   <p id="showScroll">0</p>
+  <p id="showBScroll">0</p>
+  <p id="showYScroll">0</p>
   <input type="text" placeholder="输入滚动位置" id="sinput" style="display:block;width: 100%;height: 40px; border: 1px solid">
   <button id="btn" style="display:block;width: 100%;height: 40px; border: 1px solid">滚动</button>
 </div>
@@ -206,11 +208,15 @@
 <script>
   document.addEventListener('scroll', function(e){
     document.querySelector('#showScroll').innerHTML = document.documentElement.scrollTop
+    document.querySelector('#showBScroll').innerHTML = document.body.scrollTop
+    document.querySelector('#showYScroll').innerHTML = window.pageYOffset
   })
   document.querySelector('#btn').onclick = function(){
     var si = document.querySelector('#sinput').value
     if(si){
       document.documentElement.scrollTop = si
+      window.pageYOffset = si
+      document.body.scrollTop = si
     }
   }
 </script>
