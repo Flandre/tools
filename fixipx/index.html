@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0, viewport-fit=cover">
-  <title>Title</title>
+  <title>改1</title>
   <style>
     * {
       padding: 0;
@@ -32,19 +32,20 @@
       color: #fff;
       position: fixed;
       bottom: 0;
+      box-sizing: content-box;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
     }
     .fixed-bar span{
       display: inline-block;
       line-height:50px;
       background: #79ceff;
-      padding-bottom: constant(safe-area-inset-bottom);
-      padding-bottom: env(safe-area-inset-bottom);
     }
   </style>
 </head>
 <body>
   <div class="content">
-    <a href="index2.html">无</a>
+    <a href="index2.html">改1</a>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
