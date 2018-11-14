@@ -33,11 +33,18 @@
       position: fixed;
       bottom: 0;
     }
+    .fixed-bar span{
+      display: inline-block;
+      line-height:50px;
+      background: #79ceff;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
   </style>
 </head>
 <body>
   <div class="content">
-    <a href="index2.html">无fixed</a>
+    <a href="index2.html">无</a>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
@@ -133,7 +140,7 @@
     <p>这是一段文字</p>
   </div>
   <div class="fixed-bar">
-    fix bottom!
+    <span>其实这个东西只有这么高</span>
   </div>
 </body>
 </html>
