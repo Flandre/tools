@@ -9,16 +9,21 @@
       padding: 0;
       margin: 0;
       border: 0;
+      box-sizing: border-box;
     }
     body{
+      padding-top: constant(safe-area-inset-top);
+      padding-left: constant(safe-area-inset-left);
+      padding-right: constant(safe-area-inset-right);
+      padding-bottom: constant(safe-area-inset-bottom);
       padding-top: env(safe-area-inset-top);
       padding-left: env(safe-area-inset-left);
       padding-right: env(safe-area-inset-right);
       padding-bottom: env(safe-area-inset-bottom);
-      padding-bottom: env(safe-area-inset-bottom);
     }
     .content {
       background: #fdd;
+      padding: 20px;
     }
     .fixed-bar {
       width: 100%;
@@ -32,6 +37,7 @@
 </head>
 <body>
   <div class="content">
+    <a href="index2.html">无fixed</a>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
     <p>这是一段文字</p>
