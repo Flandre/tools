@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var str = ''
+  str = `${str}屏幕显示宽度:${window.screen.availWidth}\n`
+  str = `${str}屏幕显示高度:${window.screen.availHeight}\n`
+  str = `${str}屏占比:${window.devicePixelRatio}\n`
+  str = `${str}屏幕物理宽度:${window.screen.availWidth * window.devicePixelRatio}\n`
+  str = `${str}屏幕物理高度:${window.screen.availHeight * window.devicePixelRatio}\n`
+  alert(str)
+</script>
+</html>
