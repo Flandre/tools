@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input id="ts" type="text"><button id="build">生成</button>
+<div id="out">
+
+</div>
+
+<script>
+  document.getElementById('ts').onfocus = function(){
+    this.value = '';
+  };
+
+  document.getElementById('build').onclick = function(){
+    document.getElementById("out").innerHTML = '';
+    var ts = parseInt(document.getElementById('ts').value), out = ''
+    out += ts
+    out += ' => '
+    var ot = new Date(ts)
+    out += ot.getFullYear()
+    out += '年'
+    out += (ot.getMonth() + 1)
+    out += '月'
+    out += ot.getDate()
+    out += '日 '
+    out += az(ot.getHours())
+    out += ':'
+    out += az(ot.getMinutes())
+    out += ':'
+    out += az(ot.getSeconds())
+
+
+    document.getElementById("out").innerHTML = out;
+  }
+
+  function az(n) {
+    return n < 10 ? '0' + n : n
+  }
+</script>
+</body>
+</html>
