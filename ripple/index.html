@@ -118,17 +118,12 @@
     $span.style.height = $ele.clientWidth + 'px'
     $ele.appendChild($span)
     $ele.onmouseenter = function(e){
-      // console.log(e.clientX, e.clientY)
-      // console.log(document.documentElement.scrollTop)
-      // console.log($ele.offsetLeft, $ele.offsetTop)
-      // console.log(e.clientX + document.documentElement.scrollLeft - $ele.offsetLeft - $ele.clientWidth, e.clientY + document.documentElement.scrollTop - $ele.offsetTop - $ele.clientWidth)
       $span.style.top = (e.clientY + document.documentElement.scrollTop - $ele.offsetTop - $ele.clientWidth / 2) + 'px'
       $span.style.left = (e.clientX + document.documentElement.scrollLeft - $ele.offsetLeft - $ele.clientWidth / 2) + 'px'
       $span.classList.add('rippling')
       setTimeout(() => {
         $span.classList.remove('rippling')
       }, 450)
-
     }
   })
 
