@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>仿虾米音乐按钮</title>
+  <style>
+    .button {
+      position: relative;
+      display: inline-block;
+      min-width: 105px;
+      height: 40px;
+      border-radius: 20px;
+      line-height: 40px;
+      background-color: #f2f2f2;
+      font-size: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .button .ripple {
+      display: block;
+      position: absolute;
+      background-color: rgba(0, 0, 0, .05);
+      border-radius: 100%;
+      transform: scale(0)
+    }
+    .button .ripple.rippling {
+      animation: ripple .45s linear
+    }
+    @keyframes ripple {
+      to {
+        opacity: 0;
+        transform: scale(2.5)
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="button">
+  测试按钮
+</div>
+<div class="button">
+  测试按钮
+</div>
+<div class="button">
+  测试按钮
+</div>
+<div class="button">
+  测试测试测试测试按钮
+</div>
+<div class="button">
+  测试这里有一个非常非常非常非常非常非常非常非常非常长的按钮
+</div>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+  <div class="button">
+    测试按钮
+  </div>
+  <div class="button">
+    测试按钮
+  </div>
+  <div class="button">
+    测试按钮
+  </div>
+  <div class="button">
+    测试测试测试测试按钮
+  </div>
+</body>
+<script>
+  document.querySelectorAll('.button').forEach($ele => {
+    let $span = document.createElement('span')
+    $span.className = 'ripple'
+    $span.style.top = '0px'
+    $span.style.left = '0px'
+    $span.style.width = $ele.clientWidth + 'px'
+    $span.style.height = $ele.clientWidth + 'px'
+    $ele.appendChild($span)
+    $ele.onmouseenter = function(e){
+      // console.log(e.clientX, e.clientY)
+      // console.log(document.documentElement.scrollTop)
+      // console.log($ele.offsetLeft, $ele.offsetTop)
+      // console.log(e.clientX + document.documentElement.scrollLeft - $ele.offsetLeft - $ele.clientWidth, e.clientY + document.documentElement.scrollTop - $ele.offsetTop - $ele.clientWidth)
+      $span.style.top = (e.clientY + document.documentElement.scrollTop - $ele.offsetTop - $ele.clientWidth / 2) + 'px'
+      $span.style.left = (e.clientX + document.documentElement.scrollLeft - $ele.offsetLeft - $ele.clientWidth / 2) + 'px'
+      $span.classList.add('rippling')
+      setTimeout(() => {
+        $span.classList.remove('rippling')
+      }, 450)
+
+    }
+  })
+
+</script>
+</html>
