@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  let xhr = new XMLHttpRequest()
+  xhr.open("GET", "//127.0.0.1:8233/getimage", false);
+  xhr.send()
+  document.write(`<img src="${xhr.responseText}"/>`)
+</script>
+</body>
+</html>

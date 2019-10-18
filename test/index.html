@@ -32,35 +32,7 @@
   </style>
 </head>
 <body>
-  <div class="dialog">
-    <div class="title">摸你傻是不是RBQ</div>
-    <div class="actions">
-      <a href="javascript:;" class="btn btn-default btn-alert">是</a>
-      <a href="javascript:;" class="btn btn-default btn-move">不是</a>
-    </div>
-  </div>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAFAAAAKAAAAAUAAAAFAAABB8qrNUQAAADTSURBVCgVDM0xSwJhAIDhb9GpO7zOkPEuBRBKQgkhEJEqIbayklQUWg5vwjqzBO5QDNSyAZRWtQlcXH0D776IFHnKZsUnac4lWOoditdGpXTHTSHHdf6C7FmaYDCAiFomsYiJKSWWafFwf8vs22PgObScKk6tRFjqCKlpGJqOfqCRTp7gqSr6xOqUaat6oz7HrHoEeIwJAnroX2R4avT5LOtHCfGXRdGuVHfFdhH8cREcPgMnvOyHhpfOZNRnMR2zXv6xWc3Zbv5JJmx2AAAA//wBpJ0AAAA1klEQVQBzQAy/wBIQDv/h3tt/46Bd/+elIz/pJyU/6CZkv+blZD/ko2I/4R/fP8XFhb/AIJ1Z/+LfnT/pJiO/6adk/9mYV3/TkxM/1tZWf9ta2r/f3x6xoZGf8Ainxx/6GTif+soZb/taui/7Cpof/AurL/0svD/+Ha0v/q493/LSsr/wCYin7/pZeM/7Wonv/DuK7/z8a8/9XNw//c08r/6eHY//j18/8vLy//AJmLgP+omo/uq2k/8W4rv/MwbX/1szC/97Tyv/j2tL/5uLi/y8vMP+qhugOH8QOmwAAAABJRU5ErkJggg==">
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    $('.btn-move').on('mouseover', function(){
-      $('.btn-move').css({
-        top: Math.random() * window.innerHeight + 'px',
-        left: Math.random() * window.innerWidth + 'px'
-      })
-    })
-    $('.btn-move').on('touchstart', function(e){
-      e.preventDefault()
-      e.stopPropagation()
-      $('.btn-move').css({
-        top: Math.random() * window.innerHeight + 'px',
-        left: Math.random() * window.innerWidth + 'px'
-      })
-    })
-    $('.btn-alert').on('click', function(){
-      alert('摸你傻就是baka')
-    })
-    $('.btn-move').on('click', function(){
-      alert('点中了也是baka')
-    })
-  </script>
 </body>
 </html>

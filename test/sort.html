@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  function sortIndex(arr, index) {
+    console.log('======')
+    console.log(arr)
+    console.log(index)
+    if(arr.length > 15){
+      return '数组过大'
+    }
+    if(arr.length === 1){
+      return arr
+    }
+    if(arr.length === 0){
+      return arr
+    }
+    let maxFlag = 1, minFlag = 0
+    for(let i = 1; i <= arr.length; i++ ){
+      if(index < maxFlag && index >= minFlag){
+        return arr.sort().splice(0, arr.length - i).concat(arr.sort().splice(~~index/minFlag, 1)).concat(sortIndex(arr, index % minFlag))
+      } else {
+        minFlag = maxFlag
+        maxFlag = maxFlag * (i + 1)
+      }
+    }
+  }
+  console.log(sortIndex([1, 2, 3, 4, 5, 6, 7, 8], 40319))
+</script>
+</body>
+</html>
